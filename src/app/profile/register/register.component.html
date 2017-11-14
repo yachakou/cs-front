@@ -1,0 +1,51 @@
+<div class="col-md-4 col-md-offset-4">
+  <div class="panel panel-default ">
+    <div class="panel-heading"> S'enregister</div>
+    <div class="panel-body">
+
+      <form (ngSubmit)="register()" [formGroup]="susbscribe">
+        <div class="form-group">
+          <label for="id_profile_username">Nom </label>
+          <input type="text" class="form-control" placeholder="Nom"
+                 name="id_profile_username"
+                 [formControl]="susbscribe.controls['username']"
+                 id="id_profile_username">
+        </div>
+
+        <div class="form-group">
+          <label for="id_profile_mail">Mail </label>
+          <input type="email"  placeholder="Mail" class="form-control"
+                 [formControl]="susbscribe.controls['email']"
+                 name="id_profile_mail"
+                 id="id_profile_mail">
+
+          <div class="form-group">
+            <label for="id_profile_password">Mot de passe </label>
+            <input type="password" placeholder="Mot de passe" class="form-control"
+                   [formControl]="susbscribe.controls['password']"
+                   name="id_profile_mail"
+                   id="id_profile_password">
+            <small [hidden]="!susbscribe.controls['password'].invalid">
+             5 caractere minimum
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="id_profile_password2">Resaisissez votre mot de passe </label>
+            <input type="password"  placeholder="Resaisissez votre mot de passe" class="form-control"
+                   [formControl]="susbscribe.controls['password2']"
+                   name="id_profile_password2"
+                   id="id_profile_password2">
+            <small [hidden]="!susbscribe.controls['password2'].invalid">
+              Password incorrecte !
+            </small>
+          </div>
+
+          <br>
+          <button type="submit" class="btn btn-default" [disabled]="!susbscribe.valid">S'enregister !</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

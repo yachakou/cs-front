@@ -1,0 +1,69 @@
+<div class="col-md-4 col-md-offset-4">
+  <div class="panel panel-default ">
+    <div class="panel-heading"> Register</div>
+    <div class="panel-body">
+
+      <form (ngSubmit)="register()">
+        <div class="form-group">
+          <label for="id_m">Nom </label>
+          <input type="text" class="form-control" placeholder="Nom" [(ngModel)]="registerModel.name" name="id_m"
+                 id="id_m">
+        </div>
+        <div class="form-group">
+          <label for="id_m">Mail </label>
+          <input type="email" [(ngModel)]="registerModel.mail" placeholder="Mail" class="form-control" name="id_mail"
+                 id="id_mail">
+        </div>
+        <div class="form-group">
+          <label for="id_nbp">Nombre de personne </label>
+          <input type="number" [(ngModel)]="registerModel.nombrePersonne" placeholder="Nombre de personne"
+                 class="form-control" name="id_nbp"
+                 id="id_nbp">
+        </div>
+        <div class="form-group">
+          <label for="id_typ">Type d'event </label>
+          <input type="text" [(ngModel)]="registerModel.typeEvent" placeholder="Foot, Tennis ..." class="form-control"
+                 name="id_typ"
+                 id="id_typ">
+        </div>
+        <div class="form-group">
+          <label for="id_adr">Adresse </label>
+          <input type="text" [(ngModel)]="registerModel.adresse" placeholder="Adresse" class="form-control"
+                 name="id_adr"
+                 id="id_adr" #search>
+        </div>
+        <div class="form-group">
+          <label for="id_adr">Date </label>
+          <div class="input-group">
+            <input class="form-control" style="float:none" placeholder="Select a date" ngx-mydatepicker name="mydate"
+                   [(ngModel)]="registerModel.dateJour" [options]="myOptions" #dp="ngx-mydatepicker"
+                   (dateChanged)="onDateChanged($event)"/>
+
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-default" (click)="dp.clearDate()">
+                <i class="glyphicon glyphicon-remove"></i>
+            </button>
+            <button type="button" class="btn btn-default" (click)="dp.toggleCalendar()">
+                <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+        </span>
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-default">Creer !</button>
+      </form>
+
+      <div [hidden]="!isResponse">
+        <h2><b>Register complete !</b></h2>
+        <p>{{ verifyResponse.id }}</p>
+        <p>{{ verifyResponse.status }}</p>
+      </div>
+
+      <div [hidden]="!isError">
+        <p>Erreur ... </p>
+      </div>
+
+    </div>
+  </div>
+</div>
