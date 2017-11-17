@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import {PositionModel} from './position.model';
+import {PositionModel} from "./position.model";
 
 
 @Injectable()

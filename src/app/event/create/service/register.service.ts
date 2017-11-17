@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
-import {VerifyModel} from '../../../verify/model/verify.model';
+import {JoinModel} from '../../join/model/join.model';
 import {RegisterModel} from '../model/register.model';
 import {HttpClient} from "@angular/common/http";
 
@@ -9,7 +9,7 @@ export class RegisterService {
 
   URL_REGISTER = 'http://localhost:8085/register/';
 
-  private verifyModel: VerifyModel;
+  private verifyModel: JoinModel;
 
   constructor(private http: HttpClient) {
   }

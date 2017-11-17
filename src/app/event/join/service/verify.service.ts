@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {VerifyModel} from '../model/verify.model';
+import {JoinModel} from '../model/join.model';
 
 @Injectable()
 export class VerifyService {
 
   URL_VERIFY = 'http://localhost:8085/verify/';
 
-  private verifyModel: VerifyModel;
+  private verifyModel: JoinModel;
 
   constructor(private http: Http) {
   }

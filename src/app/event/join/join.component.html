@@ -1,0 +1,56 @@
+<div class="col-md-4 col-md-offset-4">
+
+
+  <div class="panel panel-default ">
+    <div class="panel-heading"> Trouver un event autour de moi</div>
+    <div class="panel-body">
+      <form (ngSubmit)="verifyClient()" [formGroup]="rechercherForm">
+        <div class="form-group">
+          <label for="id_l">Lieu </label>
+          <input type="text" placeholder="Adresse ou ville ... "
+                 class="form-control"
+                 [formControl]="rechercherForm.controls['adresse']"
+                 name="id_l" id="id_l" #search>
+        </div>
+        <div class="form-group">
+          <label for="id_max">Distance Max (en km) </label>
+          <input type="number" min="0" max="100"
+                 placeholder="Distance Max" class="form-control"
+                 [formControl]="rechercherForm.controls['distance']"
+                 name="id_max" id="id_max">
+        </div>
+        <button type="submit" class="btn btn-default" [disabled]="!rechercherForm.valid">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          Rechercher
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="text-center"><app-loading [isLoading]="isLoading" [message]="loadingMessage"></app-loading></div>
+</div>
+
+
+
+<div [hidden]="!isResponse" class="col-md-8 col-md-offset-2">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" (click)="showResult('liste')">
+            <span class="glyphicon glyphicon-th-list"  aria-hidden="true"></span>
+            Liste
+          </button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" (click)="showResult('carte')" >
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+            Carte
+          </button>
+        </div>
+      </div>
+      <br>
+      <div [hidden]="showMap">Liste</div>
+      <app-core-map [hidden]="!showMap" [lat]="joinmodel.lat" [lng]="joinmodel.long"></app-core-map>
+    </div>
+  </div>
+</div>

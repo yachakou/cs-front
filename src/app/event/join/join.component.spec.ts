@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { Map2Component } from './map2.component';
+import { JoinEventComponent } from './join.component';
 
-describe('Map2Component', () => {
-  let component: Map2Component;
-  let fixture: ComponentFixture<Map2Component>;
+describe('JoinEventComponent', () => {
+  let component: JoinEventComponent;
+  let fixture: ComponentFixture<JoinEventComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Map2Component ]
+      declarations: [ JoinEventComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Map2Component);
+    fixture = TestBed.createComponent(JoinEventComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,19 +1,19 @@
 import {Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
 import {RegisterModel} from './model/register.model';
 import {RegisterService} from './service/register.service';
-import {VerifyModel} from '../../verify/model/verify.model';
+import {JoinModel} from '../join/model/join.model';
 import {MapsAPILoader} from '@agm/core';
 import {INgxMyDpOptions} from 'ngx-mydatepicker';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.css']
 })
 export class CreateEventComponent implements OnInit {
 
   registerModel: RegisterModel = new RegisterModel();
-  verifyResponse: VerifyModel = new VerifyModel();
+  verifyResponse: JoinModel = new JoinModel(0, 0);
   private isResponse = false;
   private isError = false;
 
@@ -48,7 +48,7 @@ export class CreateEventComponent implements OnInit {
     console.log(this.registerModel);
     this.registerService.register(this.registerModel)
       .subscribe(
-        (data: VerifyModel) => {
+        (data: JoinModel) => {
           this.verifyResponse = data;
           this.isResponse = true;
           this.isError = false;
