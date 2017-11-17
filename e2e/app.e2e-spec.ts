@@ -1,10 +1,10 @@
-import { AmarisDemoPage } from './app.po';
+import { CSFPage } from './app.po';
 
-describe('amaris-demo App', function() {
-  let page: AmarisDemoPage;
+describe('CSFPage App', function() {
+  let page: CSFPage;
 
   beforeEach(() => {
-    page = new AmarisDemoPage();
+    page = new CSFPage();
   });
 
   it('should display message saying app works', () => {

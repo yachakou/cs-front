@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class AmarisDemoPage {
+export class CSFPage {
   navigateTo() {
     return browser.get('/');
   }
